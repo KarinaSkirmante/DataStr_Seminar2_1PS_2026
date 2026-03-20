@@ -56,5 +56,20 @@ public class MyLinkedList {
 		
 	}
 	
+	public void print() throws Exception{
+		if(isEmpty()) {
+			throw (new Exception("Saraksts ir tukšs un to nevar izprintēt"));
+		}
+		
+		MyNode currentNode = firstNode;
+		while(currentNode!=null) {
+			System.out.print(currentNode.getElement() + " ");
+			currentNode = currentNode.getNextNode();
+		}
+		System.out.println();
+		
+	} 
+	
+	
 	
 }
