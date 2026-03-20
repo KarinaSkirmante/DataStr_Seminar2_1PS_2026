@@ -28,4 +28,33 @@ public class MyLinkedList {
 		
 	}
 	
+	public void add(char element) throws Exception{
+		if(isFull()) {
+			throw new Exception("Saraksts ir pilns un nevar pievienot elementu");
+		}
+		
+		//tiks pievienots pirmais elements un tam izveidots piramis bloks
+		if(howManyElements == 0) {
+			MyNode newNode = new MyNode(element);
+			firstNode = newNode;
+			lastNode = newNode;
+			howManyElements++;
+		}
+		//ja tiek pievienots otrais, tresais... elements
+		//TODO ja vēlas, tad var aoptimizet kodu, jo ir rindas, kuras sakrīt abos gadījumos
+		else
+		{
+			MyNode newNode = new MyNode(element);
+			newNode.setPreviousNode(lastNode);
+			lastNode.setNextNode(newNode);
+			lastNode = newNode;
+			howManyElements++;
+			
+			
+		}
+		
+		
+	}
+	
+	
 }
