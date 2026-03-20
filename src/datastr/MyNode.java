@@ -23,6 +23,12 @@ public class MyNode {
 	public void setPreviousNode(MyNode previousNode) {
 		this.previousNode = previousNode;
 	}
+	public MyNode(char element) {
+		setElement(element);
+	}
 	
+	public String toString() {
+		return "" + element;
+	}
 	
 }
