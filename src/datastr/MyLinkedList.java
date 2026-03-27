@@ -184,7 +184,27 @@ public class MyLinkedList {
 	}
 	
 	
-	//search
+	//TODO mājās partaisīt funkciju, lai var atrast elmentu vairākas vietas un visas pozīcijas atgriež
+	public int search(char element) throws Exception{
+		if (isEmpty()) {
+			throw (new Exception("Saraksts ir tukšs, tāpēc nevar meklēt elementus"));
+		}
+		
+		int foundPosition = 0;
+		MyNode currentNode = firstNode;
+		while(currentNode!=null) {
+			if(currentNode.getElement() == element) {
+				return foundPosition;
+			}
+			foundPosition++;
+			currentNode = currentNode.getNextNode();
+		}
+		
+		throw new Exception("Meklētais elements neeksistē sarakstā");
+		
+	}
+	
+	
 	//makeEmpty
 
 }

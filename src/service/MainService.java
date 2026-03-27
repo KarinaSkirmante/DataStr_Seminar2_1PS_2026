@@ -37,6 +37,11 @@ public class MainService {
 			
 			System.out.println("Izgūt elementu no 2 pozīcijas");
 			System.out.println("2.pozīcijas element ir " + symbols.get(2));//A
+			
+			System.out.println("Atrast G elementa pozīciju");
+			System.out.println(symbols.search('G'));//3
+
+			
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
