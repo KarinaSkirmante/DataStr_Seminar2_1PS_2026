@@ -1,6 +1,6 @@
 package datastr;
 
-public class MyLinkedList {
+public class MyLinkedList<Ttype> {
 
 	private MyNode firstNode = null;// get un set netaisam, jo lieottajam nedodam iespēju tikt pie pašiem blokiem
 	private MyNode lastNode = null;// get un set netaisam, jo lieottajam nedodam iespēju tikt pie pašiem blokiem
@@ -27,11 +27,16 @@ public class MyLinkedList {
 
 	}
 
-	public void add(char element) throws Exception {
+	public void add(Ttype element) throws Exception {
 		if (isFull()) {
 			throw new Exception("Saraksts ir pilns un nevar pievienot elementu");
 		}
 
+		if(element == null) {
+			throw new Exception("Ievades elements nevar būt null");
+		}
+		
+		
 		// tiks pievienots pirmais elements un tam izveidots piramis bloks
 		if (isEmpty()) {
 			MyNode newNode = new MyNode(element);
@@ -53,7 +58,15 @@ public class MyLinkedList {
 
 	}
 
-	public void add(char element, int position) throws Exception {
+	public void add(Ttype element, int position) throws Exception {
+		if(element == null) {
+			throw new Exception("Ievades elements nevar būt null");
+		}
+		
+		if (isFull()) {
+			throw new Exception("Saraksts ir pilns un nevar pievienot elementu");
+		}
+		
 		if (position < 0) {
 			throw new Exception("Pozicīja nevar būt mazakā par 0");
 		}
@@ -161,7 +174,7 @@ public class MyLinkedList {
 
 	}
 	
-	public char get(int position) throws Exception{
+	public Ttype get(int position) throws Exception{
 		if (isEmpty()) {
 			throw (new Exception("Saraksts ir tukšs, tāpēc nevar izgūt elementus"));
 		}
@@ -179,21 +192,26 @@ public class MyLinkedList {
 			currentNode = currentNode.getNextNode();
 		}
 		
-		return currentNode.getElement();
+		return (Ttype) currentNode.getElement();
 		
 	}
 	
 	
 	//TODO mājās partaisīt funkciju, lai var atrast elmentu vairākas vietas un visas pozīcijas atgriež
-	public int search(char element) throws Exception{
+	public int search(Ttype element) throws Exception{
+		if(element == null) {
+			throw new Exception("Ievades elements nevar būt null");
+		}
+		
 		if (isEmpty()) {
 			throw (new Exception("Saraksts ir tukšs, tāpēc nevar meklēt elementus"));
 		}
 		
+			
 		int foundPosition = 0;
 		MyNode currentNode = firstNode;
 		while(currentNode!=null) {
-			if(currentNode.getElement() == element) {
+			if(currentNode.getElement().equals(element)) {
 				return foundPosition;
 			}
 			foundPosition++;
