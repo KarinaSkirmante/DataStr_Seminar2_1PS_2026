@@ -34,7 +34,7 @@ public class MyLinkedList {
 		}
 		
 		//tiks pievienots pirmais elements un tam izveidots piramis bloks
-		if(howManyElements == 0) {
+		if(isEmpty()) {
 			MyNode newNode = new MyNode(element);
 			firstNode = newNode;
 			lastNode = newNode;
@@ -55,6 +55,59 @@ public class MyLinkedList {
 		
 		
 	}
+	
+	
+	public void add(char element, int position) throws Exception{
+		if(position < 0) {
+			throw new Exception("Pozicīja nevar būt mazakā par 0");
+		}
+		
+		if(position > howManyElements) {
+			throw new Exception("Pozīcija ir lielāka kā atļautā");
+		}
+		
+		
+		//1. ievietot sakumā kā nulto elementu
+		if(position == 0) {
+			MyNode newNode = new MyNode(element);
+			firstNode.setPreviousNode(newNode);
+			newNode.setNextNode(firstNode);
+			firstNode = newNode;
+			howManyElements++;
+		}
+		
+		//2. piekabināt beigās kā pēdejo elementu
+		else if(position == howManyElements)
+		{
+			add(element);
+			
+		}
+		//3. iespraucināt elementu pa vidu
+		else
+		{
+			MyNode currentNode = firstNode;//TODO noskaidrot, kurā pozicjā - tuvaak sākumam vai beigām ir jaievieto bloks
+			for(int i = 1; i < position; i++) {
+				currentNode = currentNode.getNextNode();
+			}
+			
+			MyNode previousNode = currentNode;
+			MyNode nextNode = currentNode.getNextNode();
+			
+			MyNode newNode = new MyNode(element);
+			
+			newNode.setPreviousNode(previousNode);
+			previousNode.setNextNode(newNode);
+			
+			newNode.setNextNode(nextNode);
+			nextNode.setPreviousNode(newNode);
+			
+			howManyElements++;
+			
+			
+		}
+		
+	}
+	
 	
 	public void print() throws Exception{
 		if(isEmpty()) {
