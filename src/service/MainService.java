@@ -34,6 +34,9 @@ public class MainService {
 			System.out.println("Izdzēšam elementu no vidus - 3. pozīcijā");
 			symbols.remove(3);
 			symbols.print();//B A K G
+			
+			System.out.println("Izgūt elementu no 2 pozīcijas");
+			System.out.println("2.pozīcijas element ir " + symbols.get(2));//A
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
