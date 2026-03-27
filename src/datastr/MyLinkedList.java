@@ -205,6 +205,11 @@ public class MyLinkedList {
 	}
 	
 	
-	//makeEmpty
+	public void makeEmpty() {
+		firstNode = null;
+		lastNode = null;
+		howManyElements = 0;
+		System.gc();
+	}
 
 }

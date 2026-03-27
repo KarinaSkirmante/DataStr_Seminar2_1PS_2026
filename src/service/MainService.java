@@ -40,6 +40,11 @@ public class MainService {
 			
 			System.out.println("Atrast G elementa pozīciju");
 			System.out.println(symbols.search('G'));//3
+			
+			System.out.println("Iztukšot sarakstu un pēc tam pievineo jaunu elementu");
+			symbols.makeEmpty();
+			symbols.add('Q');
+			symbols.print();//Q
 
 			
 		}
