@@ -22,6 +22,18 @@ public class MainService {
 			System.out.println("Pievienot elementu pa vidu - 2.pozīcijā");
 			symbols.add('K', 2);
 			symbols.print(); //Z B A K C G W
+			
+			System.out.println("Izdzēšam elementu no sākuma");
+			symbols.remove(0);
+			symbols.print();//B A K C G W
+			
+			System.out.println("Izdzēšam elementu no beigām");
+			symbols.remove(5);
+			symbols.print();//B A K C G
+			
+			System.out.println("Izdzēšam elementu no vidus - 3. pozīcijā");
+			symbols.remove(3);
+			symbols.print();//B A K G
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
